@@ -855,3 +855,9 @@ footer{ padding: 34px 0 44px; color: rgba(255,255,255,.62); }
   .reveal{ transition:none; transform:none; opacity:1; }
   .btn, .links a, .hamburger, .credit-mini a, .to-top{ transition:none; }
 }
+/* REMOVE HERO OVERLAY SHAPES (the 3 frames on top of the hero image) */
+.sculpture .shape{
+  display: none;
+}
+
+
