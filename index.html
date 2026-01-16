@@ -1,407 +1,415 @@
+<!-- index.html -->
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Evida Studio · Websites for Service Professionals</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- FAVICON -->
-  <link rel="icon" type="image/png" href="logo.png">
-
-  <!-- bump version to avoid GitHub Pages cache -->
-  <link rel="stylesheet" href="styles.css?v=20">
+  <title>AXIS Atelier | Architecture & High End Interior Design</title>
+  <meta name="description" content="Architecture concept for the US market. Pure geometry, artful restraint, and high end interior design. Website concept by Evida Studio." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-  <header class="site-header">
-    <div class="site-header-inner">
-      <div class="site-logo">
-        <a href="#top">Evida <span>Studio</span></a>
+  <div class="ribbon">
+    <div class="container">
+      <div class="ribbon-inner">
+        <div class="demo-pill" aria-label="Demo concept">
+          <span class="dot" aria-hidden="true"></span>
+          Demo concept, built to sell
+        </div>
+
+        <div class="credit-mini">
+  <span class="spark" aria-hidden="true"></span>
+  <span>Website concept by Evida Studio</span>
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <header class="container">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="AXIS Atelier home">
+        <span class="brand-name">
+          <strong>AXIS Atelier</strong>
+          <span>Architecture, interiors</span>
+        </span>
+      </a>
+
+      <div class="links" role="navigation" aria-label="Desktop links">
+        <a href="#services">Services</a>
+        <a href="#projects">Selected work</a>
+        <a href="#process">Process</a>
+        <a href="#about">Studio</a>
+        <a href="#contact">Contact</a>
       </div>
 
-      <button class="nav-toggle" type="button" aria-label="Toggle navigation">
-        <span class="nav-toggle-line"></span>
-        <span class="nav-toggle-line"></span>
+      <div class="nav-cta">
+        <a class="btn" href="#projects">View projects <span class="arrow" aria-hidden="true"></span></a>
+        <a class="btn primary" href="#contact">Request a proposal <span class="arrow" aria-hidden="true"></span></a>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
       </button>
+    </nav>
 
-      <nav class="nav-links">
-        <a href="#portfolio">Work that brings clients</a>
-        <a href="#about">About Evida</a>
-        <a href="#services">What you get</a>
-        <a href="#process">How it works</a>
-
-        <!-- Social links -->
-        <a
-          class="nav-social"
-          href="https://www.instagram.com/evidastudio/"
-          target="_blank"
-          rel="noopener"
-          aria-label="Evida Studio on Instagram"
-          title="Instagram"
-        >IG</a>
-        <a
-          class="nav-social"
-          href="https://www.linkedin.com/in/fotis-antonas-643511181/?originalSubdomain=gr"
-          target="_blank"
-          rel="noopener"
-          aria-label="Fotis Antonas on LinkedIn"
-          title="LinkedIn"
-        >in</a>
-
-        <a href="#contact" class="btn-nav">Contact</a>
-      </nav>
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <div class="mobile-card">
+        <div class="mobile-links">
+          <a href="#services">Services</a>
+          <a href="#projects">Selected work</a>
+          <a href="#process">Process</a>
+          <a href="#about">Studio</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="mobile-cta">
+          <a class="btn" href="#projects">View projects <span class="arrow" aria-hidden="true"></span></a>
+          <a class="btn primary" href="#contact">Request a proposal <span class="arrow" aria-hidden="true"></span></a>
+        </div>
+      </div>
     </div>
   </header>
 
-  <main class="shell">
+  <main id="top">
+    <section class="hero">
+      <svg class="grid-bg" viewBox="0 0 1600 900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="p" width="36" height="36" patternUnits="userSpaceOnUse">
+            <path d="M36 0H0V36" fill="none" stroke="rgba(255,255,255,.10)" stroke-width="1"/>
+          </pattern>
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="rgba(184,242,255,.35)"/>
+            <stop offset=".55" stop-color="rgba(217,199,255,.22)"/>
+            <stop offset="1" stop-color="rgba(183,255,207,.18)"/>
+          </linearGradient>
+        </defs>
+        <rect width="1600" height="900" fill="url(#p)"/>
+        <circle cx="380" cy="290" r="180" fill="url(#g1)" opacity=".25"/>
+        <circle cx="1240" cy="220" r="220" fill="url(#g1)" opacity=".20"/>
+        <circle cx="980" cy="720" r="260" fill="url(#g1)" opacity=".18"/>
+      </svg>
 
-    <!-- HERO -->
-    <section class="hero" id="top">
-      <div class="hero-copy reveal-frame">
-        <div class="hero-eyebrow reveal-content">Websites built for people <span class="eyebrow-break">who sell expertise</span></div>
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-card reveal">
+            <div class="hero-kicker">
+              <span class="rule" aria-hidden="true"></span>
+              Architecture concept for the US market
+            </div>
 
-        <h1 class="hero-title reveal-content">
-          Turn visits <span class="hero-accent">into</span><br><span class="booked-calls"><span class="hero-accent">booked</span> calls</span>
-        </h1>
+            <h1>
+              Pure <em>geometry</em>, built as a work of art.
+            </h1>
 
-        <p class="hero-sub reveal-content">
-          Clear positioning, clean design, and the right flow, so the right people trust you fast and contact you.
-        </p>
+            <p class="hero-sub">
+              Architecture and high end interior design for clients who want restraint, clarity, and a space that feels inevitable.
+              Every line has purpose, every surface has silence, every detail earns its place.
+            </p>
 
-        <div class="hero-meta reveal-content">
-          <span>Built to guide decisions, not just look good.</span>
-          <span>Easy to find, easy to understand.</span>
-          <span>Clear proposal in 24h, no back and forth.</span>
-          <span>Launch ready in 14 days.</span>
-        </div>
+            <div class="hero-actions">
+              <a class="btn primary" href="#contact">Book a consultation <span class="arrow" aria-hidden="true"></span></a>
+              <a class="btn" href="#projects">Explore selected work <span class="arrow" aria-hidden="true"></span></a>
+            </div>
 
-        <div class="hero-cta-row">
-          <a href="#contact" class="btn-primary reveal-content">Get in touch</a>
-          <a href="#portfolio" class="btn-outline reveal-content">See real examples</a>
-        </div>
-      </div>
-
-      <!-- HERO TAGS (MOBILE ONLY) -->
-      <div class="hero-tags-row hero-tags-row--mobile reveal-frame">
-        <div class="hero-tags reveal-content">
-          <span class="hero-tag">Psychologists</span>
-          <span class="hero-tag">Dermatologists</span>
-          <span class="hero-tag">Dentists</span>
-          <span class="hero-tag">Physiotherapists</span>
-        </div>
-      </div>
-
-      <!-- HERO VISUAL -->
-      <aside class="hero-visual reveal-frame">
-        <div class="hero-phone hero-panel">
-          <div class="hero-phone-screen">
-            <header class="hero-phone-header reveal-content">
-              <p class="hero-phone-eyebrow">How great clients</p>
-              <h2 class="hero-phone-title">discover and trust you</h2>
-            </header>
-
-            <div class="hero-phone-list">
-              <article class="hero-phone-card reveal-content">
-                <h3>They discover you</h3>
-                <p>Search or a post brings them to your site.</p>
-              </article>
-
-              <article class="hero-phone-card reveal-content">
-                <h3>They understand fast</h3>
-                <p>They instantly know if you’re the right fit.</p>
-              </article>
-
-              <article class="hero-phone-card reveal-content">
-                <h3>They feel safe</h3>
-                <p>Clear info + trust signals remove doubt.</p>
-              </article>
-
-              <article class="hero-phone-card reveal-content">
-                <h3>They take the next step</h3>
-                <p>One clear action, call, message, booking.</p>
-              </article>
+            <div class="hero-meta" aria-label="Highlights">
+              <span class="meta-chip"><span>Focus</span> <b>Residential, hospitality</b></span>
+              <span class="meta-chip"><span>Locations</span> <b>California, New York, Florida</b></span>
+              <span class="meta-chip"><span>Style</span> <b>Minimal, sculptural</b></span>
             </div>
           </div>
 
-          <div class="hero-phone-orb hero-phone-orb--search reveal-content"><span>🔍</span></div>
-          <div class="hero-phone-orb hero-phone-orb--check reveal-content"><span>✓</span></div>
-        </div>
-      </aside>
+          <div class="sculpture reveal" aria-label="Geometric sculpture preview">
+            <div class="frame">
+              <div class="shape s1"><div class="grid"></div></div>
+              <div class="shape s2"><div class="grid"></div></div>
+              <div class="shape s3"><div class="grid"></div></div>
+            </div>
 
-      <!-- HERO TAGS (DESKTOP ONLY) -->
-      <div class="hero-tags-row hero-tags-row--desktop reveal-frame">
-        <div class="hero-tags reveal-content">
-          <span class="hero-tag">Psychologists</span>
-          <span class="hero-tag">Dermatologists</span>
-          <span class="hero-tag">Dentists</span>
-          <span class="hero-tag">Physiotherapists</span>
+            <div class="sculpture-label">
+              <div class="title">
+                <strong>Concept piece, Meridian House</strong>
+                <span>Light is treated like material, and the plan reads like a calm sentence.</span>
+              </div>
+              <div class="spec">
+                Grid 22, radius 26<br/>
+                Glass, stone, oak<br/>
+                Silence by design
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- PORTFOLIO -->
-    <section class="section reveal-frame" id="portfolio">
-      <h2 class="reveal-content">Selected work, built to convert</h2>
-      <p class="section-lead reveal-content">
-        Real demos that show the flow: clarity first, trust second, action last.
-      </p>
-
-      <div class="pf-grid">
-        <!-- NEW: added FIRST -->
-        <article class="pf-item reveal-frame">
-          <a class="pf-link" href="https://fotisan.github.io/_psychologist/" target="_blank" rel="noopener">
-            <div class="pf-preview reveal-content">
-              <img src="mockup-_psychologist.png" alt="Psychologist website mockup">
-              <span class="pf-overlay"><span class="pf-overlay-pill">Open demo →</span></span>
-            </div>
-            <div class="pf-info reveal-content">
-              <h3>Psychologist Website</h3>
-              <p>Designed to make people feel safe enough to book.</p>
-            </div>
-          </a>
-        </article>
-
-        <!-- REPLACED: 2nd psychologist -> architect -->
-        <article class="pf-item reveal-frame">
-          <a class="pf-link" href="https://fotisan.github.io/architect/" target="_blank" rel="noopener">
-            <div class="pf-preview reveal-content">
-              <img src="Architecture.png" alt="Architecture website mockup">
-              <span class="pf-overlay"><span class="pf-overlay-pill">Open demo →</span></span>
-            </div>
-            <div class="pf-info reveal-content">
-              <h3>Architecture Website</h3>
-              <p>High-end presentation that feels like a brand, not a template.</p>
-            </div>
-          </a>
-        </article>
-
-        <article class="pf-item reveal-frame">
-          <a class="pf-link" href="https://fotisan.github.io/dermatologist/" target="_blank" rel="noopener">
-            <div class="pf-preview reveal-content">
-              <img src="mock-derma-1.png" alt="Dermatologist website mockup">
-              <span class="pf-overlay"><span class="pf-overlay-pill">Open demo →</span></span>
-            </div>
-            <div class="pf-info reveal-content">
-              <h3>Dermatologist Website</h3>
-              <p>People understand services fast, and choose you with confidence.</p>
-            </div>
-          </a>
-        </article>
-
-        <article class="pf-item reveal-frame">
-          <a class="pf-link" href="https://fotisan.github.io/dentist/" target="_blank" rel="noopener">
-            <div class="pf-preview reveal-content">
-              <img src="mock-dentist-1.png" alt="Dentist website mockup">
-              <span class="pf-overlay"><span class="pf-overlay-pill">Open demo →</span></span>
-            </div>
-            <div class="pf-info reveal-content">
-              <h3>Dentist Website</h3>
-              <p>One message, one action, so bookings feel effortless.</p>
-            </div>
-          </a>
-        </article>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="section reveal-frame" id="about">
-      <h2 class="reveal-content">Meet your partner</h2>
-      <p class="section-lead reveal-content">
-        Hi, I’m Fotis. I build websites that earn trust, and convert it into inquiries.
-      </p>
-
-      <div class="about-grid">
-        <figure class="about-photo reveal-frame">
-          <div class="about-photo-ring"></div>
-          <img src="fotis-hero.png" alt="Fotis, web designer" class="reveal-content">
-        </figure>
-
-        <div class="about-card reveal-frame">
-          <p class="reveal-content">
-            I come from business &amp; marketing. Your website isn’t “design”, it’s your best salesperson.
+    <section id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <h2>Architecture, interior design, and the details that sell the dream</h2>
+          </div>
+          <p>
+            This is not decoration. It is alignment. Structure, light, circulation, and materials,
+            all designed to feel effortless for the client and unforgettable for their guests.
           </p>
-          <p class="reveal-content">
-            The goal is simple: the right person understands you fast, feels confident, and takes the next step.
+        </div>
+
+        <div class="grid3">
+          <div class="card reveal">
+            <span class="tag"><span class="mini" aria-hidden="true"></span>Architecture</span>
+            <div class="service-title">Concept to buildable reality</div>
+            <p class="service-text">
+              Massing studies, plan logic, façade rhythm, and a clear design narrative that survives the value engineering stage.
+            </p>
+            <div class="metric">
+              <span><i aria-hidden="true"></i>Site strategy</span>
+              <span><i aria-hidden="true"></i>Permitting ready set</span>
+              <span><i aria-hidden="true"></i>Construction intent</span>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <span class="tag"><span class="mini" aria-hidden="true"></span>Interiors</span>
+            <div class="service-title">High end interiors with restraint</div>
+            <p class="service-text">
+              Material palettes, custom millwork, lighting design, and furniture selection that looks expensive because it is simple.
+            </p>
+            <div class="metric">
+              <span><i aria-hidden="true"></i>Lighting scenes</span>
+              <span><i aria-hidden="true"></i>Joinery details</span>
+              <span><i aria-hidden="true"></i>FF and E support</span>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <span class="tag"><span class="mini" aria-hidden="true"></span>Visuals</span>
+            <div class="service-title">Imagery that closes clients</div>
+            <p class="service-text">
+              Render direction, camera language, and a presentation deck that makes a project feel real before it exists.
+            </p>
+            <div class="metric">
+              <span><i aria-hidden="true"></i>Art direction</span>
+              <span><i aria-hidden="true"></i>Story boards</span>
+              <span><i aria-hidden="true"></i>Sales ready deck</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Selected concept work</h2>
+          <p>
+            Three fictional projects, built to showcase taste, geometry, and premium positioning.
+            Perfect for the US market, where perception drives price.
           </p>
-          <ul class="reveal-content">
-            <li>Built for service businesses (where trust matters most)</li>
-            <li>Every section earns the next click</li>
-            <li>Simple, fast, easy to maintain</li>
-          </ul>
+        </div>
+
+        <div class="grid3">
+          <article class="card project reveal">
+            <div class="project-art project-meridian" aria-label="Project image"></div>
+            <div class="project-top">
+              <h3>Meridian House, Los Angeles</h3>
+              <span class="tag"><span class="mini" aria-hidden="true"></span>Residential</span>
+            </div>
+            <p>
+              A hillside home with strict lines and soft light, designed to feel quiet from the street and cinematic inside.
+            </p>
+          </article>
+
+          <article class="card project reveal">
+            <div class="project-art project-northline" aria-label="Project image"></div>
+            <div class="project-top">
+              <h3>Northline Hotel, Miami</h3>
+              <span class="tag"><span class="mini" aria-hidden="true"></span>Hospitality</span>
+            </div>
+            <p>
+              A lobby concept where circulation is choreography, and every surface is there to make people linger.
+            </p>
+          </article>
+
+          <article class="card project reveal">
+            <div class="project-art project-silver" aria-label="Project image"></div>
+            <div class="project-top">
+              <h3>Silver Court, New York</h3>
+              <span class="tag"><span class="mini" aria-hidden="true"></span>Interiors</span>
+            </div>
+            <p>
+              A restrained interior system built around stone, shadow lines, and negative space. Luxury with discipline.
+            </p>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- SERVICES -->
-    <section class="section reveal-frame" id="services">
-      <h2 class="reveal-content">Everything your website needs</h2>
-      <p class="section-lead reveal-content">
-        You get a website that does its job: explains, builds trust, and brings messages.
-      </p>
+    <section id="process">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Process</h2>
+          <p>
+            A clean, decisive workflow that protects the concept, speeds decisions, and keeps the presentation sharp.
+          </p>
+        </div>
 
-      <div class="cards">
-        <div class="card reveal-frame">
-          <h3 class="reveal-content">Strategy</h3>
-          <p class="reveal-content">Say the right thing to the right people, fast.</p>
-        </div>
-        <div class="card reveal-frame">
-          <h3 class="reveal-content">UX &amp; Copy</h3>
-          <p class="reveal-content">A flow that removes doubt and makes action feel natural.</p>
-        </div>
-        <div class="card reveal-frame">
-          <h3 class="reveal-content">Build</h3>
-          <p class="reveal-content">Fast, clean, and reliable, so people stay and read.</p>
-        </div>
-        <div class="card reveal-frame">
-          <h3 class="reveal-content">Launch &amp; Next steps</h3>
-          <p class="reveal-content">Set up to be found, and improved over time.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROCESS -->
-    <section class="section reveal-frame" id="process">
-      <h2 class="reveal-content">A simple process. Great results.</h2>
-      <p class="section-lead reveal-content">
-        Designed for busy professionals: minimal meetings, maximum clarity.
-      </p>
-
-      <div class="process-steps">
-        <div class="step step--open reveal-frame">
-          <button class="step-toggle" type="button">
-            <span class="step-title-text reveal-content">01 • Your goal, in plain words</span>
-            <span class="step-arrow" aria-hidden="true"></span>
-          </button>
-          <div class="step-body reveal-content">
-            A short email brief, so we get the message right before we design anything.
+        <div class="steps">
+          <div class="card step reveal">
+            <div class="n">01</div>
+            <strong>Discovery and positioning</strong>
+            <span>What you sell, who buys it, and what must be felt in 5 seconds.</span>
           </div>
-        </div>
-
-        <div class="step reveal-frame">
-          <button class="step-toggle" type="button">
-            <span class="step-title-text reveal-content">02 • The flow that makes sense</span>
-            <span class="step-arrow" aria-hidden="true"></span>
-          </button>
-          <div class="step-body reveal-content">
-            We remove confusion: what you do, who it’s for, why you, then one clear next step.
+          <div class="card step reveal">
+            <div class="n">02</div>
+            <strong>Geometry and narrative</strong>
+            <span>Plans, massing, materials, and a story strong enough to hold under budget pressure.</span>
           </div>
-        </div>
-
-        <div class="step reveal-frame">
-          <button class="step-toggle" type="button">
-            <span class="step-title-text reveal-content">03 • Design that earns trust</span>
-            <span class="step-arrow" aria-hidden="true"></span>
-          </button>
-          <div class="step-body reveal-content">
-            Calm, premium design with the details that make people feel confident choosing you.
+          <div class="card step reveal">
+            <div class="n">03</div>
+            <strong>Visual direction</strong>
+            <span>Camera, light, composition. A presentation that makes the project obvious.</span>
           </div>
-        </div>
-
-        <div class="step reveal-frame">
-          <button class="step-toggle" type="button">
-            <span class="step-title-text reveal-content">04 • Launch + measure</span>
-            <span class="step-arrow" aria-hidden="true"></span>
-          </button>
-          <div class="step-body reveal-content">
-            You don’t just “get a site.” You get a setup you can improve with real data.
+          <div class="card step reveal">
+            <div class="n">04</div>
+            <strong>Delivery</strong>
+            <span>Deck, renders, and the assets that help you win clients and sell the space.</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section class="section reveal-frame" id="contact">
-      <h2 class="reveal-content">Let’s see if I can help</h2>
-      <p class="section-lead reveal-content">
-        If your website looks good but doesn’t bring inquiries, that’s fixable.
-        <br><br>
-        Send me 2 to 3 websites you like and your #1 goal (bookings, calls, or leads).
-        <br>
-        I’ll tell you what I’d improve, and send a clear proposal within 24 hours.
-      </p>
+    <section id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Studio</h2>
+          <p>
+            A demo concept built as a premium pitch. The goal is conversion, confidence, and an unmistakably high end feel.
+          </p>
+        </div>
 
-      <a href="mailto:hello@evidastudio.com" class="btn-primary reveal-frame">
-        <span class="reveal-content">Get in touch</span>
-      </a>
+        <div class="quote">
+          <div class="card big reveal">
+            <blockquote>
+              “The difference between expensive and luxury is restraint. You can feel it before you can explain it.”
+            </blockquote>
+            <cite>
+              AXIS Atelier is a fictional studio created to demonstrate how premium architecture brands should present themselves online.
+            </cite>
+          </div>
+
+          <div class="side">
+            <div class="card mini-stat reveal">
+              <b>14 days</b>
+              <span>Concept website delivery for high end studios that sell expertise.</span>
+            </div>
+            <div class="card mini-stat reveal">
+              <b>1 message</b>
+              <span>A homepage should say what you do and why it matters, immediately.</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
+    <section id="contact">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Contact</h2>
+          <p>
+            Want a concept like this for your studio, practice, or brand. Send the basics and you will get a proposal.
+          </p>
+        </div>
+
+        <div class="contact">
+          <form class="card form reveal" id="contactForm">
+            <h3>Request a proposal</h3>
+            <p>
+              This form is part of the demo. In a real build, it connects to email, CRM, or booking.
+            </p>
+
+            <div class="fields">
+              <label>
+                Name
+                <input type="text" name="name" placeholder="Your name" required />
+              </label>
+              <label>
+                Email
+                <input type="email" name="email" placeholder="you@studio.com" required />
+              </label>
+              <label class="full">
+                Project
+                <textarea name="project" placeholder="Tell us what you build and who you want to attract" required></textarea>
+              </label>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn primary" type="submit">Send <span class="arrow" aria-hidden="true"></span></button>
+              <a class="btn" href="#projects">View work <span class="arrow" aria-hidden="true"></span></a>
+            </div>
+
+            <div class="fineprint">
+              Demo form. No data is sent. Designed to show the intent and the layout.
+            </div>
+          </form>
+
+          <aside class="card profile reveal">
+            <div class="badge">
+              <span class="mini" aria-hidden="true"></span>
+              Website concept, by Evida Studio
+            </div>
+            <h3>Built to convert premium clients</h3>
+            <p>
+              If you sell expertise, the site should feel inevitable. One message, one direction, one next step.
+            </p>
+
+            <div class="list">
+              <div class="item">
+                <span class="ico" aria-hidden="true"></span>
+                <div>
+                  <b>Clarity</b>
+                  <span>Visitors understand the offer, fast.</span>
+                </div>
+              </div>
+              <div class="item">
+                <span class="ico" aria-hidden="true"></span>
+                <div>
+                  <b>Confidence</b>
+                  <span>A premium look that supports premium pricing.</span>
+                </div>
+              </div>
+              <div class="item">
+                <span class="ico" aria-hidden="true"></span>
+                <div>
+                  <b>Conversion</b>
+                  <span>One primary call to action, designed to be used.</span>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
-    © Evida Studio. Built for clarity.
-    <div class="footer-links" aria-label="Social links">
-      <a href="https://www.instagram.com/evidastudio/" target="_blank" rel="noopener">Instagram</a>
-      <span class="footer-dot">•</span>
-      <a href="https://www.linkedin.com/in/fotis-antonas-643511181/?originalSubdomain=gr" target="_blank" rel="noopener">LinkedIn</a>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <span class="footer-strong">AXIS Atelier</span>
+          <span class="footer-soft"> · Demo architecture concept</span>
+        </div>
+        <div>
+          Built by <a href="#contact">Evida Studio</a>
+        </div>
+      </div>
     </div>
   </footer>
 
-  <button class="scroll-top" id="scrollTopBtn" aria-label="Back to top">↑</button>
+  <!-- Back to top (discreet arrow) -->
+  <button class="to-top" id="toTop" type="button" aria-label="Back to top">
+    <span class="chev" aria-hidden="true"></span>
+  </button>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-
-      // Accordion (UPDATED): allow multiple steps to stay open
-      const steps = document.querySelectorAll('.step');
-      steps.forEach(step => {
-        const toggle = step.querySelector('.step-toggle');
-        if (!toggle) return;
-
-        toggle.addEventListener('click', () => {
-          // Toggle only the clicked step, do NOT close others
-          step.classList.toggle('step--open');
-        });
-      });
-
-      // Mobile nav
-      const navToggle = document.querySelector('.nav-toggle');
-      const navLinks = document.querySelector('.nav-links');
-      if (navToggle && navLinks) {
-        navToggle.addEventListener('click', () => {
-          navLinks.classList.toggle('is-open');
-          navToggle.classList.toggle('is-active');
-        });
-
-        navLinks.querySelectorAll('a').forEach(link => {
-          link.addEventListener('click', () => {
-            navLinks.classList.remove('is-open');
-            navToggle.classList.remove('is-active');
-          });
-        });
-      }
-
-      // Scroll to top
-      const scrollBtn = document.getElementById('scrollTopBtn');
-      const secondSection = document.querySelector('#portfolio');
-
-      if (scrollBtn) {
-        const updateScrollBtn = () => {
-          const isMobile = window.matchMedia('(max-width: 767px)').matches;
-
-          if (isMobile) {
-            if (window.scrollY > 80) scrollBtn.classList.add('is-visible');
-            else scrollBtn.classList.remove('is-visible');
-          } else if (secondSection) {
-            const rect = secondSection.getBoundingClientRect();
-            const sectionMidFromDocTop = rect.top + window.scrollY + rect.height / 2;
-
-            if (window.scrollY >= sectionMidFromDocTop - window.innerHeight / 2) {
-              scrollBtn.classList.add('is-visible');
-            } else {
-              scrollBtn.classList.remove('is-visible');
-            }
-          }
-        };
-
-        window.addEventListener('scroll', updateScrollBtn);
-        window.addEventListener('resize', updateScrollBtn);
-        updateScrollBtn();
-
-        scrollBtn.addEventListener('click', () => {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-      }
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
