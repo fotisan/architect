@@ -489,7 +489,7 @@ section{ padding: 42px 0; }
   padding: 8px 10px;
   border-radius: 14px;
   border:1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.03);
+  background: rgba(255,255,255asing.03);
 }
 .metric i{
   width:9px; height:9px; border-radius:999px;
@@ -539,6 +539,12 @@ section{ padding: 42px 0; }
   background: rgba(255,255,255,.05);
   transform: rotate(12deg);
   box-shadow: 0 24px 70px rgba(0,0,0,.35);
+}
+
+/* ✅ CHANGE (ONLY): remove the overlays/frames on top of project images */
+.project-art:before,
+.project-art:after{
+  display:none;
 }
 
 /* Project images */
