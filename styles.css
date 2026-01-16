@@ -1,418 +1,768 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AXIS Atelier | Architecture & High End Interior Design</title>
-  <meta name="description" content="Architecture concept for the US market. Pure geometry, artful restraint, and high end interior design. Website concept by Evida Studio." />
-  <link rel="stylesheet" href="styles.css" />
-</head>
+:root{
+  --bg:#0a0b10;
+  --bg2:#0e1020;
+  --panel: rgba(255,255,255,.06);
+  --panel2: rgba(255,255,255,.10);
+  --line: rgba(255,255,255,.14);
+  --text: rgba(255,255,255,.90);
+  --muted: rgba(255,255,255,.66);
+  --soft: rgba(255,255,255,.40);
+  --accent: #b8f2ff;
+  --accent2:#d9c7ff;
+  --accent3:#b7ffcf;
+  --shadow: 0 24px 80px rgba(0,0,0,.55);
+  --radius: 22px;
+  --radius2: 30px;
+  --max: 1160px;
+  --ease: cubic-bezier(.2,.8,.2,1);
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", Times, serif;
+}
 
-<body>
-  <div class="ribbon">
-    <div class="container">
-      <div class="ribbon-inner">
-        <div class="demo-pill" aria-label="Demo concept">
-          <span class="dot" aria-hidden="true"></span>
-          Demo concept, built to sell
-        </div>
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  font-family: var(--sans);
+  color: var(--text);
+  /* Option A: Clean Gallery (white spotlight, no extra colors) */
+  background:
+    radial-gradient(1200px 700px at 50% 0%, rgba(255,255,255,0.03), transparent 70%),
+    var(--bg);
+  overflow-x:hidden;
+}
 
-        <div class="credit-mini">
-          <span class="spark" aria-hidden="true"></span>
-          <span>Website concept by <strong>Fotis Antonas</strong>, Evida Studio</span>
-          <a href="#contact" aria-label="Start a project">
-            Start a project <span class="arrow" aria-hidden="true"></span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
+a{ color:inherit; text-decoration:none; }
+button{ font-family:inherit; }
+.container{ width:min(var(--max), calc(100% - 40px)); margin:0 auto; }
 
-  <header class="container">
-    <nav class="nav" aria-label="Primary navigation">
-      <a class="brand" href="#top" aria-label="AXIS Atelier home">
-        <span class="mark" aria-hidden="true"></span>
-        <span class="brand-name">
-          <strong>AXIS Atelier</strong>
-          <span>Architecture, interiors</span>
-        </span>
-      </a>
+/* Ribbon */
+.ribbon{
+  position:sticky; top:0; z-index:50;
+  backdrop-filter: blur(16px);
+  background: linear-gradient(180deg, rgba(10,11,16,.72), rgba(10,11,16,.38));
+  border-bottom:1px solid rgba(255,255,255,.10);
+}
+.ribbon-inner{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:10px 0;
+  gap:14px;
+}
+.demo-pill{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:8px 12px;
+  border-radius:999px;
+  background: rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+  color: rgba(255,255,255,.74);
+  font-size:12px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+.dot{
+  width:8px; height:8px; border-radius:999px;
+  background: radial-gradient(circle at 30% 30%, #ffffff, rgba(255,255,255,.2));
+  box-shadow: 0 0 18px rgba(184,242,255,.55);
+}
+.credit-mini{
+  display:flex; align-items:center; gap:10px;
+  color: rgba(255,255,255,.62);
+  font-size:12px;
+}
+.credit-mini strong{ color: rgba(255,255,255,.86); font-weight:650; }
+.credit-mini a{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:8px 12px;
+  border-radius:999px;
+  background: rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+  transition: transform .25s var(--ease), background .25s var(--ease), border-color .25s var(--ease);
+}
+.credit-mini a:hover{ transform: translateY(-1px); background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.18); }
+.credit-mini .spark{
+  width:10px; height:10px; border-radius:3px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  box-shadow: 0 0 18px rgba(217,199,255,.35);
+}
 
-      <div class="links" role="navigation" aria-label="Desktop links">
-        <a href="#services">Services</a>
-        <a href="#projects">Selected work</a>
-        <a href="#process">Process</a>
-        <a href="#about">Studio</a>
-        <a href="#contact">Contact</a>
-      </div>
+/* Nav */
+header{ position:relative; z-index:10; }
+.nav{ display:flex; align-items:center; justify-content:space-between; padding:16px 0; gap:18px; }
 
-      <div class="nav-cta">
-        <a class="btn" href="#projects">View projects <span class="arrow" aria-hidden="true"></span></a>
-        <a class="btn primary" href="#contact">Request a proposal <span class="arrow" aria-hidden="true"></span></a>
-      </div>
+.brand{ display:flex; align-items:center; gap:12px; min-width:220px; }
+.mark{
+  width:38px; height:38px;
+  border-radius:14px;
+  background:
+    linear-gradient(135deg, rgba(184,242,255,.9), rgba(217,199,255,.75)),
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,.9), rgba(255,255,255,0));
+  box-shadow: 0 18px 50px rgba(0,0,0,.45);
+  position:relative;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.20);
+}
+.mark:before{
+  content:"";
+  position:absolute; inset:-40%;
+  background: conic-gradient(from 200deg, rgba(255,255,255,.0), rgba(255,255,255,.26), rgba(255,255,255,.0));
+  transform: rotate(22deg);
+  opacity:.55;
+}
+.brand-name{ display:flex; flex-direction:column; line-height:1.05; }
+.brand-name strong{
+  font-family: var(--serif);
+  font-weight:700;
+  letter-spacing:.02em;
+  font-size:16px;
+  color: rgba(255,255,255,.92);
+}
+.brand-name span{
+  font-size:12px;
+  color: rgba(255,255,255,.62);
+  letter-spacing:.10em;
+  text-transform:uppercase;
+  margin-top:4px;
+}
 
-      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-        <span></span><span></span><span></span>
-      </button>
-    </nav>
+.links{ display:flex; align-items:center; gap:18px; }
+.links a{
+  font-size:13px;
+  color: rgba(255,255,255,.78);
+  letter-spacing:.02em;
+  padding:10px 10px;
+  border-radius:12px;
+  transition: background .25s var(--ease), color .25s var(--ease), transform .25s var(--ease);
+}
+.links a:hover{ background: rgba(255,255,255,.06); color: rgba(255,255,255,.92); transform: translateY(-1px); }
 
-    <div class="mobile-menu" id="mobileMenu" hidden>
-      <div class="mobile-card">
-        <div class="mobile-links">
-          <a href="#services">Services</a>
-          <a href="#projects">Selected work</a>
-          <a href="#process">Process</a>
-          <a href="#about">Studio</a>
-          <a href="#contact">Contact</a>
-        </div>
-        <div class="mobile-cta">
-          <a class="btn" href="#projects">View projects <span class="arrow" aria-hidden="true"></span></a>
-          <a class="btn primary" href="#contact">Request a proposal <span class="arrow" aria-hidden="true"></span></a>
-        </div>
-      </div>
-    </div>
-  </header>
+.nav-cta{ display:flex; align-items:center; gap:10px; }
 
-  <main id="top">
-    <section class="hero">
-      <svg class="grid-bg" viewBox="0 0 1600 900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <pattern id="p" width="36" height="36" patternUnits="userSpaceOnUse">
-            <path d="M36 0H0V36" fill="none" stroke="rgba(255,255,255,.10)" stroke-width="1"/>
-          </pattern>
-          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="rgba(184,242,255,.35)"/>
-            <stop offset=".55" stop-color="rgba(217,199,255,.22)"/>
-            <stop offset="1" stop-color="rgba(183,255,207,.18)"/>
-          </linearGradient>
-        </defs>
-        <rect width="1600" height="900" fill="url(#p)"/>
-        <circle cx="380" cy="290" r="180" fill="url(#g1)" opacity=".25"/>
-        <circle cx="1240" cy="220" r="220" fill="url(#g1)" opacity=".20"/>
-        <circle cx="980" cy="720" r="260" fill="url(#g1)" opacity=".18"/>
-      </svg>
+.btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  gap:10px;
+  padding:12px 14px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.06);
+  color: rgba(255,255,255,.88);
+  font-size:13px;
+  letter-spacing:.02em;
+  transition: transform .25s var(--ease), background .25s var(--ease), border-color .25s var(--ease);
+  cursor:pointer;
+  user-select:none;
+  white-space:nowrap;
+}
+.btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.22); }
+.btn.primary{
+  background: linear-gradient(135deg, rgba(184,242,255,.20), rgba(217,199,255,.16));
+  border-color: rgba(184,242,255,.22);
+}
+.btn.primary:hover{ border-color: rgba(184,242,255,.34); }
+.btn .arrow{
+  width:10px; height:10px;
+  border-right:2px solid rgba(255,255,255,.78);
+  border-top:2px solid rgba(255,255,255,.78);
+  transform: rotate(45deg);
+  margin-left:2px;
+}
 
-      <div class="container">
-        <div class="hero-inner">
-          <div class="hero-card reveal">
-            <div class="hero-kicker">
-              <span class="rule" aria-hidden="true"></span>
-              Architecture concept for the US market
-            </div>
+.hamburger{
+  display:none;
+  width:44px; height:44px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.06);
+  cursor:pointer;
+  transition: background .25s var(--ease), border-color .25s var(--ease), transform .25s var(--ease);
+  position:relative;
+}
+.hamburger:hover{ background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.22); transform: translateY(-1px); }
+.hamburger span{
+  position:absolute; left:12px; right:12px;
+  height:2px; border-radius:2px;
+  background: rgba(255,255,255,.80);
+  transition: transform .28s var(--ease), top .28s var(--ease), opacity .22s var(--ease);
+}
+.hamburger span:nth-child(1){ top:16px; }
+.hamburger span:nth-child(2){ top:21px; opacity:.9; }
+.hamburger span:nth-child(3){ top:26px; opacity:.8; }
 
-            <h1>
-              Pure <em>geometry</em>, built as a work of art.
-            </h1>
+.mobile-menu{ display:none; padding: 0 0 18px 0; }
+.mobile-card{
+  border-radius: var(--radius);
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.05);
+  box-shadow: var(--shadow);
+  padding:14px;
+}
+.mobile-links{ display:flex; flex-direction:column; gap:8px; margin-bottom:12px; }
+.mobile-links a{
+  padding:12px 12px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  color: rgba(255,255,255,.86);
+  font-size:14px;
+  transition: background .25s var(--ease), border-color .25s var(--ease);
+}
+.mobile-links a:hover{ background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.16); }
+.mobile-cta{ display:flex; gap:10px; flex-wrap:wrap; }
 
-            <p class="hero-sub">
-              Architecture and high end interior design for clients who want restraint, clarity, and a space that feels inevitable.
-              Every line has purpose, every surface has silence, every detail earns its place.
-            </p>
+/* Hero */
+.hero{ position:relative; padding: 64px 0 26px; }
+.grid-bg{
+  position:absolute; inset:-160px -120px -120px -120px;
+  pointer-events:none;
+  opacity:.25;
+  mask-image: radial-gradient(circle at 30% 35%, black 0%, black 55%, transparent 78%);
+}
+.hero-inner{
+  display:grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 26px;
+  align-items: stretch;
+  position:relative;
+}
+.hero-card{
+  border-radius: var(--radius2);
+  background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+  border:1px solid rgba(255,255,255,.14);
+  box-shadow: var(--shadow);
+  overflow:hidden;
+  position:relative;
+  padding: 30px 30px 28px;
+}
+.hero-kicker{
+  font-size:12px;
+  color: rgba(255,255,255,.68);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.hero-kicker .rule{
+  height:1px; width:38px;
+  background: linear-gradient(90deg, rgba(184,242,255,.0), rgba(184,242,255,.75));
+  opacity:.9;
+}
+.hero h1{
+  margin: 14px 0 12px;
+  font-family: var(--serif);
+  font-weight: 750;
+  font-size: clamp(34px, 4.2vw, 54px);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+.hero h1 em{
+  font-style:normal;
+  background: linear-gradient(135deg, rgba(184,242,255,1), rgba(217,199,255,1));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color: transparent;
+  text-shadow: 0 12px 40px rgba(184,242,255,.10);
+}
+.hero-sub{
+  margin: 0;
+  color: rgba(255,255,255,.72);
+  font-size: 15px;
+  line-height: 1.65;
+  max-width: 56ch;
+}
+.hero-actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:18px;
+}
+.hero-meta{
+  margin-top: 18px;
+  display:flex;
+  gap: 14px;
+  flex-wrap:wrap;
+  color: rgba(255,255,255,.66);
+  font-size: 12px;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.meta-chip{
+  display:inline-flex; align-items:center; gap:10px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.10);
+}
+.meta-chip b{
+  font-family: var(--mono);
+  font-weight: 650;
+  color: rgba(255,255,255,.86);
+  letter-spacing:.02em;
+  text-transform:none;
+}
 
-            <div class="hero-actions">
-              <a class="btn primary" href="#contact">Book a consultation <span class="arrow" aria-hidden="true"></span></a>
-              <a class="btn" href="#projects">Explore selected work <span class="arrow" aria-hidden="true"></span></a>
-            </div>
+/* Sculpture */
+.sculpture{
+  border-radius: var(--radius2);
+  border:1px solid rgba(255,255,255,.14);
+  background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+  box-shadow: var(--shadow);
+  position:relative;
+  overflow:hidden;
+  min-height: 420px;
+  display:flex;
+  align-items:stretch;
+  justify-content:stretch;
+}
+.sculpture .frame{
+  position:absolute; inset:18px;
+  z-index:1;
+  border-radius: 26px;
+  border:1px solid rgba(255,255,255,.12);
+  background:
+    radial-gradient(400px 380px at 30% 20%, rgba(184,242,255,.22), transparent 60%),
+    radial-gradient(480px 420px at 78% 72%, rgba(217,199,255,.18), transparent 60%),
+    radial-gradient(520px 480px at 60% 30%, rgba(183,255,207,.10), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  overflow:hidden;
+}
+.shape{
+  position:absolute;
+  z-index:2;
+  border-radius: 26px;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+  transform-style: preserve-3d;
+  box-shadow: 0 24px 70px rgba(0,0,0,.40);
+  backdrop-filter: blur(10px);
+}
+.shape.s1{ width: 64%; height: 30%; left: 10%; top: 12%; transform: perspective(900px) rotateX(20deg) rotateY(-22deg); }
+.shape.s2{ width: 52%; height: 26%; left: 30%; top: 40%; transform: perspective(900px) rotateX(-14deg) rotateY(18deg); }
+.shape.s3{ width: 40%; height: 22%; left: 16%; top: 64%; transform: perspective(900px) rotateX(18deg) rotateY(10deg); }
+.shape .grid{
+  position:absolute; inset:0;
+  opacity:.45;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.10) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(circle at 30% 30%, black 0%, black 60%, transparent 85%);
+}
+.shape:after{
+  content:"";
+  position:absolute; inset:-1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(184,242,255,.22), rgba(217,199,255,.10), rgba(183,255,207,.10));
+  opacity:.38;
+  mix-blend-mode: screen;
+  pointer-events:none;
+}
+.sculpture-label{
+  position:absolute;
+  z-index:5;
+  left: 22px; right: 22px; bottom: 22px;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap: 14px;
+  pointer-events:none;
+}
+.sculpture-label .title{ pointer-events:auto; display:flex; flex-direction:column; gap:6px; max-width:65%; }
+.sculpture-label .title strong{
+  font-family: var(--serif);
+  letter-spacing:.02em;
+  font-size:16px;
+  color: rgba(255,255,255,.90);
+}
+.sculpture-label .title span{ color: rgba(255,255,255,.66); font-size:13px; line-height:1.4; }
+.sculpture-label .spec{
+  pointer-events:auto;
+  text-align:right;
+  font-family: var(--mono);
+  font-size:12px;
+  color: rgba(255,255,255,.70);
+  background: rgba(0,0,0,.22);
+  border: 1px solid rgba(255,255,255,.14);
+  padding: 10px 12px;
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+}
 
-            <div class="hero-meta" aria-label="Highlights">
-              <span class="meta-chip"><span>Focus</span> <b>Residential, hospitality</b></span>
-              <span class="meta-chip"><span>Locations</span> <b>California, New York, Florida</b></span>
-              <span class="meta-chip"><span>Style</span> <b>Minimal, sculptural</b></span>
-            </div>
-          </div>
+/* Sections */
+section{ padding: 42px 0; }
+.section-head{
+  display:flex; align-items:flex-end; justify-content:space-between;
+  gap:16px;
+  margin-bottom: 18px;
+}
+.section-head h2{
+  margin:0;
+  font-family: var(--serif);
+  font-weight: 720;
+  letter-spacing:-0.01em;
+  font-size: clamp(22px, 2.4vw, 30px);
+}
+.section-head p{
+  margin:0;
+  color: rgba(255,255,255,.66);
+  font-size: 14px;
+  line-height:1.6;
+  max-width: 58ch;
+}
+.grid3{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.card{
+  border-radius: var(--radius);
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.05);
+  box-shadow: 0 18px 70px rgba(0,0,0,.35);
+  padding: 18px;
+  position:relative;
+  overflow:hidden;
+}
+.card:before{
+  content:"";
+  position:absolute; inset:-2px;
+  background: radial-gradient(500px 280px at 20% 0%, rgba(184,242,255,.12), transparent 60%),
+              radial-gradient(500px 300px at 90% 100%, rgba(217,199,255,.10), transparent 60%);
+  opacity:.9;
+  pointer-events:none;
+}
+.card > *{ position:relative; }
 
-          <div class="sculpture reveal" aria-label="Geometric sculpture preview">
-            <div class="frame">
-              <span class="img-note">Insert: a hero 3D render, a sculptural detail shot, or a signature project image.</span>
-              <div class="shape s1"><div class="grid"></div></div>
-              <div class="shape s2"><div class="grid"></div></div>
-              <div class="shape s3"><div class="grid"></div></div>
-            </div>
+.tag{
+  display:inline-flex; align-items:center; gap:10px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+  color: rgba(255,255,255,.70);
+  font-size:12px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+.tag .mini{
+  width:10px; height:10px; border-radius:3px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  opacity:.95;
+}
+.service-title{
+  margin: 12px 0 8px;
+  font-weight: 680;
+  letter-spacing:.01em;
+  font-size: 16px;
+  color: rgba(255,255,255,.90);
+}
+.service-text{
+  margin:0;
+  color: rgba(255,255,255,.68);
+  font-size: 14px;
+  line-height: 1.65;
+}
+.metric{
+  margin-top: 14px;
+  display:flex; gap:12px; flex-wrap:wrap;
+  color: rgba(255,255,255,.66);
+  font-size: 12px;
+}
+.metric span{
+  display:inline-flex; align-items:center; gap:8px;
+  padding: 8px 10px;
+  border-radius: 14px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+}
+.metric i{
+  width:9px; height:9px; border-radius:999px;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.9), rgba(255,255,255,.2));
+  box-shadow: 0 0 14px rgba(184,242,255,.35);
+}
 
-            <div class="sculpture-label">
-              <div class="title">
-                <strong>Concept piece, Meridian House</strong>
-                <span>Light is treated like material, and the plan reads like a calm sentence.</span>
-              </div>
-              <div class="spec">
-                Grid 22, radius 26<br/>
-                Glass, stone, oak<br/>
-                Silence by design
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+/* Projects */
+.project{ display:flex; flex-direction:column; gap:12px; }
+.project-top{ display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
+.project h3{
+  margin:0;
+  font-weight: 720;
+  letter-spacing:.01em;
+  font-size: 16px;
+  color: rgba(255,255,255,.92);
+}
+.project p{ margin:0; color: rgba(255,255,255,.66); font-size: 14px; line-height:1.65; }
+.project-art{
+  height: 160px;
+  border-radius: 18px;
+  border:1px solid rgba(255,255,255,.12);
+  background:
+    radial-gradient(280px 160px at 20% 10%, rgba(184,242,255,.22), transparent 60%),
+    radial-gradient(280px 180px at 85% 80%, rgba(217,199,255,.18), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+  position:relative;
+  overflow:hidden;
+}
+.project-art:before{
+  content:"";
+  position:absolute; inset:-2px;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.10) 1px, transparent 1px);
+  background-size: 26px 26px;
+  opacity:.55;
+  mask-image: radial-gradient(circle at 30% 35%, black 0%, black 60%, transparent 85%);
+}
+.project-art:after{
+  content:"";
+  position:absolute;
+  width: 120px; height: 120px;
+  right: -28px; top: -28px;
+  border-radius: 28px;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.05);
+  transform: rotate(12deg);
+  box-shadow: 0 24px 70px rgba(0,0,0,.35);
+}
 
-    <section id="services">
-      <div class="container">
-        <div class="section-head reveal">
-          <div>
-            <h2>Architecture, interior design, and the details that sell the dream</h2>
-          </div>
-          <p>
-            This is not decoration. It is alignment. Structure, light, circulation, and materials,
-            all designed to feel effortless for the client and unforgettable for their guests.
-          </p>
-        </div>
+/* Image placeholder notes (visible labels for what to insert) */
+.img-note{
+  position:absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  padding: 10px 12px;
+  border-radius: 16px;
+  border: 1px dashed rgba(255,255,255,.22);
+  background: rgba(0,0,0,.34);
+  backdrop-filter: blur(10px);
+  color: rgba(255,255,255,.78);
+  font-family: var(--mono);
+  font-size: 11.5px;
+  line-height: 1.35;
+  letter-spacing: .02em;
+  pointer-events: none;
+  z-index: 4;
+}
 
-        <div class="grid3">
-          <div class="card reveal">
-            <span class="tag"><span class="mini" aria-hidden="true"></span>Architecture</span>
-            <div class="service-title">Concept to buildable reality</div>
-            <p class="service-text">
-              Massing studies, plan logic, façade rhythm, and a clear design narrative that survives the value engineering stage.
-            </p>
-            <div class="metric">
-              <span><i aria-hidden="true"></i>Site strategy</span>
-              <span><i aria-hidden="true"></i>Permitting ready set</span>
-              <span><i aria-hidden="true"></i>Construction intent</span>
-            </div>
-          </div>
+/* Fix: keep the note from overlapping the bottom label in the hero sculpture */
+.sculpture .img-note{
+  top: 14px;
+  bottom: auto;
+}
 
-          <div class="card reveal">
-            <span class="tag"><span class="mini" aria-hidden="true"></span>Interiors</span>
-            <div class="service-title">High end interiors with restraint</div>
-            <p class="service-text">
-              Material palettes, custom millwork, lighting design, and furniture selection that looks expensive because it is simple.
-            </p>
-            <div class="metric">
-              <span><i aria-hidden="true"></i>Lighting scenes</span>
-              <span><i aria-hidden="true"></i>Joinery details</span>
-              <span><i aria-hidden="true"></i>FF and E support</span>
-            </div>
-          </div>
+/* Process */
+.steps{ display:grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.step{ padding: 16px; }
+.step .n{
+  font-family: var(--mono);
+  font-size: 12px;
+  color: rgba(255,255,255,.70);
+  letter-spacing:.10em;
+  text-transform:uppercase;
+}
+.step strong{
+  display:block;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 720;
+  color: rgba(255,255,255,.90);
+}
+.step span{
+  display:block;
+  margin-top: 8px;
+  font-size: 13px;
+  color: rgba(255,255,255,.66);
+  line-height:1.6;
+}
 
-          <div class="card reveal">
-            <span class="tag"><span class="mini" aria-hidden="true"></span>Visuals</span>
-            <div class="service-title">Imagery that closes clients</div>
-            <p class="service-text">
-              Render direction, camera language, and a presentation deck that makes a project feel real before it exists.
-            </p>
-            <div class="metric">
-              <span><i aria-hidden="true"></i>Art direction</span>
-              <span><i aria-hidden="true"></i>Story boards</span>
-              <span><i aria-hidden="true"></i>Sales ready deck</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+/* About */
+.quote{
+  display:grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 16px;
+  align-items:stretch;
+}
+.quote .big{ padding: 22px; }
+.quote blockquote{
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 20px;
+  line-height: 1.35;
+  letter-spacing:-0.01em;
+  color: rgba(255,255,255,.90);
+}
+.quote cite{
+  display:block;
+  margin-top: 14px;
+  font-style:normal;
+  color: rgba(255,255,255,.66);
+  font-size: 13px;
+  line-height:1.5;
+}
+.quote .side{ display:flex; flex-direction:column; justify-content:space-between; gap: 12px; }
+.mini-stat{ padding: 18px; }
+.mini-stat b{
+  display:block;
+  font-family: var(--mono);
+  font-size: 26px;
+  color: rgba(255,255,255,.92);
+  letter-spacing:-0.02em;
+}
+.mini-stat span{
+  display:block;
+  margin-top: 6px;
+  color: rgba(255,255,255,.66);
+  font-size: 13px;
+  line-height:1.6;
+}
 
-    <section id="projects">
-      <div class="container">
-        <div class="section-head reveal">
-          <h2>Selected concept work</h2>
-          <p>
-            Three fictional projects, built to showcase taste, geometry, and premium positioning.
-            Perfect for the US market, where perception drives price.
-          </p>
-        </div>
+/* Contact */
+.contact{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-items:stretch;
+}
+.form{ padding: 22px; }
+.form h3{ margin:0 0 10px; font-size: 18px; letter-spacing:.01em; color: rgba(255,255,255,.92); }
+.form p{ margin:0 0 16px; color: rgba(255,255,255,.66); font-size: 14px; line-height:1.6; }
+.fields{ display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+label{
+  display:flex;
+  flex-direction:column;
+  gap: 8px;
+  font-size: 12px;
+  color: rgba(255,255,255,.66);
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+input, textarea{
+  width:100%;
+  padding: 12px 12px;
+  border-radius: 16px;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(0,0,0,.22);
+  color: rgba(255,255,255,.88);
+  outline:none;
+  transition: border-color .25s var(--ease), background .25s var(--ease);
+}
+input:focus, textarea:focus{
+  border-color: rgba(184,242,255,.38);
+  background: rgba(0,0,0,.28);
+}
+textarea{ min-height: 120px; resize: vertical; }
+.fields .full{ grid-column: 1 / -1; }
+.form-actions{ display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-top: 14px; }
+.fineprint{ color: rgba(255,255,255,.58); font-size: 12px; line-height:1.5; margin-top: 10px; }
+.profile{
+  padding: 22px;
+  display:flex;
+  flex-direction:column;
+  gap: 12px;
+  justify-content:space-between;
+}
+.profile .badge{
+  display:inline-flex;
+  width: fit-content;
+  align-items:center;
+  gap:10px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+  color: rgba(255,255,255,.74);
+  font-size: 12px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.profile h3{
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 22px;
+  letter-spacing:-0.01em;
+  color: rgba(255,255,255,.92);
+  line-height:1.15;
+}
+.profile p{ margin: 0; color: rgba(255,255,255,.66); font-size: 14px; line-height:1.7; }
 
-        <div class="grid3">
-          <article class="card project reveal">
-            <div class="project-art" aria-label="Project image placeholder">
-              <span class="img-note">Insert: Meridian House exterior render, dusk light, calm shadows</span>
-            </div>
-            <div class="project-top">
-              <h3>Meridian House, Los Angeles</h3>
-              <span class="tag"><span class="mini" aria-hidden="true"></span>Residential</span>
-            </div>
-            <p>
-              A hillside home with strict lines and soft light, designed to feel quiet from the street and cinematic inside.
-            </p>
-          </article>
-          <article class="card project reveal">
-            <div class="project-art" aria-label="Project image placeholder">
-              <span class="img-note">Insert: hotel lobby interior render, marble, warm wood, soft bounce light</span>
-            </div>
-            <div class="project-top">
-              <h3>Northline Hotel, Miami</h3>
-              <span class="tag"><span class="mini" aria-hidden="true"></span>Hospitality</span>
-            </div>
-            <p>
-              A lobby concept where circulation is choreography, and every surface is there to make people linger.
-            </p>
-          </article>
+.profile .list{ display:flex; flex-direction:column; gap:10px; margin-top: 12px; }
+.item{
+  display:flex; gap:10px; align-items:flex-start;
+  padding: 12px 12px;
+  border-radius: 18px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+}
+.item .ico{
+  width:12px; height:12px; border-radius:4px;
+  margin-top: 4px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  box-shadow: 0 0 18px rgba(184,242,255,.22);
+  flex: 0 0 auto;
+}
+.item b{ display:block; font-size: 13px; color: rgba(255,255,255,.88); margin-bottom: 4px; letter-spacing:.01em; }
+.item span{ display:block; font-size: 13px; color: rgba(255,255,255,.66); line-height:1.55; }
 
-          <article class="card project reveal">
-            <div class="project-art" aria-label="Project image placeholder">
-              <span class="img-note">Insert: kitchen and living interior render, daylight, minimal styling, high end detail</span>
-            </div>
-            <div class="project-top">
-              <h3>Silver Court, New York</h3>
-              <span class="tag"><span class="mini" aria-hidden="true"></span>Interiors</span>
-            </div>
-            <p>
-              A restrained interior system built around stone, shadow lines, and negative space. Luxury with discipline.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
+/* Footer */
+footer{ padding: 34px 0 44px; color: rgba(255,255,255,.62); }
+.footer-grid{
+  display:flex;
+  justify-content:space-between;
+  gap: 16px;
+  flex-wrap:wrap;
+  align-items:center;
+  border-top:1px solid rgba(255,255,255,.10);
+  padding-top: 18px;
+}
+.footer-grid a{
+  color: rgba(255,255,255,.74);
+  border-bottom: 1px solid rgba(255,255,255,.18);
+  padding-bottom: 2px;
+  transition: color .25s var(--ease), border-color .25s var(--ease);
+}
+.footer-grid a:hover{ color: rgba(255,255,255,.92); border-color: rgba(184,242,255,.40); }
+.footer-strong{ color: rgba(255,255,255,.86); font-weight:720; }
+.footer-soft{ color: rgba(255,255,255,.62); }
 
-    <section id="process">
-      <div class="container">
-        <div class="section-head reveal">
-          <h2>Process</h2>
-          <p>
-            A clean, decisive workflow that protects the concept, speeds decisions, and keeps the presentation sharp.
-          </p>
-        </div>
+/* Reveal */
+.reveal{
+  opacity:0;
+  transform: translateY(14px);
+  transition: opacity .65s var(--ease), transform .65s var(--ease);
+}
+.reveal.in{ opacity:1; transform: translateY(0); }
 
-        <div class="steps">
-          <div class="card step reveal">
-            <div class="n">01</div>
-            <strong>Discovery and positioning</strong>
-            <span>What you sell, who buys it, and what must be felt in 5 seconds.</span>
-          </div>
-          <div class="card step reveal">
-            <div class="n">02</div>
-            <strong>Geometry and narrative</strong>
-            <span>Plans, massing, materials, and a story strong enough to hold under budget pressure.</span>
-          </div>
-          <div class="card step reveal">
-            <div class="n">03</div>
-            <strong>Visual direction</strong>
-            <span>Camera, light, composition. A presentation that makes the project obvious.</span>
-          </div>
-          <div class="card step reveal">
-            <div class="n">04</div>
-            <strong>Delivery</strong>
-            <span>Deck, renders, and the assets that help you win clients and sell the space.</span>
-          </div>
-        </div>
-      </div>
-    </section>
+/* Responsive */
+@media (max-width: 980px){
+  .hero-inner{ grid-template-columns: 1fr; }
+  .sculpture{ min-height: 360px; }
+  .grid3{ grid-template-columns: 1fr; }
+  .steps{ grid-template-columns: 1fr 1fr; }
+  .quote{ grid-template-columns: 1fr; }
+  .contact{ grid-template-columns: 1fr; }
+  .brand{ min-width: unset; }
+}
 
-    <section id="about">
-      <div class="container">
-        <div class="section-head reveal">
-          <h2>Studio</h2>
-          <p>
-            A demo concept built as a premium pitch. The goal is conversion, confidence, and an unmistakably high end feel.
-          </p>
-        </div>
+@media (max-width: 820px){
+  .links, .nav-cta{ display:none; }
+  .hamburger{ display:inline-block; }
+  .mobile-menu{ display:block; }
+}
 
-        <div class="quote">
-          <div class="card big reveal">
-            <blockquote>
-              “The difference between expensive and luxury is restraint. You can feel it before you can explain it.”
-            </blockquote>
-            <cite>
-              AXIS Atelier is a fictional studio created to demonstrate how premium architecture brands should present themselves online.
-            </cite>
-          </div>
+@media (max-width: 560px){
+  .hero-card{ padding: 22px; }
+  .sculpture .frame{ inset: 14px; }
+  .fields{ grid-template-columns: 1fr; }
+  .steps{ grid-template-columns: 1fr; }
+  .hero-meta{ gap:10px; }
+  .meta-chip{ width:100%; justify-content:space-between; }
+  .img-note{ left: 12px; right: 12px; padding: 9px 10px; font-size: 11px; }
+}
 
-          <div class="side">
-            <div class="card mini-stat reveal">
-              <b>14 days</b>
-              <span>Concept website delivery for high end studios that sell expertise.</span>
-            </div>
-            <div class="card mini-stat reveal">
-              <b>1 message</b>
-              <span>A homepage should say what you do and why it matters, immediately.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="container">
-        <div class="section-head reveal">
-          <h2>Contact</h2>
-          <p>
-            Want a concept like this for your studio, practice, or brand. Send the basics and you will get a proposal.
-          </p>
-        </div>
-
-        <div class="contact">
-          <form class="card form reveal" id="contactForm">
-            <h3>Request a proposal</h3>
-            <p>
-              This form is part of the demo. In a real build, it connects to email, CRM, or booking.
-            </p>
-
-            <div class="fields">
-              <label>
-                Name
-                <input type="text" name="name" placeholder="Your name" required />
-              </label>
-              <label>
-                Email
-                <input type="email" name="email" placeholder="you@studio.com" required />
-              </label>
-              <label class="full">
-                Project
-                <textarea name="project" placeholder="Tell us what you build and who you want to attract" required></textarea>
-              </label>
-            </div>
-
-            <div class="form-actions">
-              <button class="btn primary" type="submit">Send <span class="arrow" aria-hidden="true"></span></button>
-              <a class="btn" href="#projects">View work <span class="arrow" aria-hidden="true"></span></a>
-            </div>
-
-            <div class="fineprint">
-              Demo form. No data is sent. Designed to show the intent and the layout.
-            </div>
-          </form>
-
-          <aside class="card profile reveal">
-            <div class="badge">
-              <span class="mini" aria-hidden="true"></span>
-              Website concept, by Evida Studio
-            </div>
-            <h3>Built to convert premium clients</h3>
-            <p>
-              If you sell expertise, the site should feel inevitable. One message, one direction, one next step.
-            </p>
-
-            <div class="list">
-              <div class="item">
-                <span class="ico" aria-hidden="true"></span>
-                <div>
-                  <b>Clarity</b>
-                  <span>Visitors understand the offer, fast.</span>
-                </div>
-              </div>
-              <div class="item">
-                <span class="ico" aria-hidden="true"></span>
-                <div>
-                  <b>Confidence</b>
-                  <span>A premium look that supports premium pricing.</span>
-                </div>
-              </div>
-              <div class="item">
-                <span class="ico" aria-hidden="true"></span>
-                <div>
-                  <b>Conversion</b>
-                  <span>One primary call to action, designed to be used.</span>
-                </div>
-              </div>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <span class="footer-strong">AXIS Atelier</span>
-          <span class="footer-soft"> · Demo architecture concept</span>
-        </div>
-        <div>
-          Built by <a href="#contact">Evida Studio</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>
+@media (prefers-reduced-motion: reduce){
+  .reveal{ transition:none; transform:none; opacity:1; }
+  .btn, .links a, .hamburger, .credit-mini a{ transition:none; }
+}
