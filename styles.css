@@ -330,6 +330,7 @@ header{ position:relative; z-index:10; }
   border-radius: 26px;
   border:1px solid rgba(255,255,255,.12);
   background:
+    url("hero-architecture-render.png") center / cover no-repeat,
     radial-gradient(400px 380px at 30% 20%, rgba(184,242,255,.22), transparent 60%),
     radial-gradient(480px 420px at 78% 72%, rgba(217,199,255,.18), transparent 60%),
     radial-gradient(520px 480px at 60% 30%, rgba(183,255,207,.10), transparent 60%),
@@ -538,6 +539,29 @@ section{ padding: 42px 0; }
   background: rgba(255,255,255,.05);
   transform: rotate(12deg);
   box-shadow: 0 24px 70px rgba(0,0,0,.35);
+}
+
+/* Project images */
+.project-art.project-meridian{
+  background:
+    url("meridian-house-exterior-dusk.png") center / cover no-repeat,
+    radial-gradient(280px 160px at 20% 10%, rgba(184,242,255,.22), transparent 60%),
+    radial-gradient(280px 180px at 85% 80%, rgba(217,199,255,.18), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+}
+.project-art.project-northline{
+  background:
+    url("northline-hotel-lobby-interior.png") center / cover no-repeat,
+    radial-gradient(280px 160px at 20% 10%, rgba(184,242,255,.22), transparent 60%),
+    radial-gradient(280px 180px at 85% 80%, rgba(217,199,255,.18), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+}
+.project-art.project-silver{
+  background:
+    url("silver-court-kitchen-living-daylight.png") center / cover no-repeat,
+    radial-gradient(280px 160px at 20% 10%, rgba(184,242,255,.22), transparent 60%),
+    radial-gradient(280px 180px at 85% 80%, rgba(217,199,255,.18), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
 }
 
 /* Image placeholder notes (visible labels for what to insert) */
