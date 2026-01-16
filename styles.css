@@ -191,6 +191,10 @@ header{ position:relative; z-index:10; }
 .hamburger span:nth-child(3){ top:26px; opacity:.8; }
 
 .mobile-menu{ display:none; padding: 0 0 18px 0; }
+
+/* FIX: respect the `hidden` attribute even inside mobile breakpoint */
+.mobile-menu[hidden]{ display:none !important; }
+
 .mobile-card{
   border-radius: var(--radius);
   border:1px solid rgba(255,255,255,.12);
