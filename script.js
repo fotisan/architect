@@ -120,7 +120,7 @@ function toast(message){
 if(form){
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    toast('Thanks. This is a demo form, but the intent is real.');
+    toast('Thanks. We will be in touch shortly.');
     form.reset();
   });
 }
