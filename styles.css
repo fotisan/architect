@@ -111,6 +111,29 @@ header{ position:relative; z-index:10; }
   transform: rotate(22deg);
   opacity:.55;
 }
+/* Creative AXIS mark: crosshair + subtle monogram feel */
+.mark{
+  position:relative;
+  overflow:hidden;
+}
+
+.mark:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(to right, rgba(255,255,255,.0) 0%, rgba(255,255,255,.0) 47%, rgba(255,255,255,.28) 50%, rgba(255,255,255,.0) 53%, rgba(255,255,255,.0) 100%),
+    linear-gradient(to bottom, rgba(255,255,255,.0) 0%, rgba(255,255,255,.0) 47%, rgba(255,255,255,.22) 50%, rgba(255,255,255,.0) 53%, rgba(255,255,255,.0) 100%),
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,.22), rgba(255,255,255,0) 58%);
+  opacity:.65;
+  mix-blend-mode: screen;
+  pointer-events:none;
+}
+
+.mark i{
+  display:none;
+}
+
 .brand-name{ display:flex; flex-direction:column; line-height:1.05; }
 .brand-name strong{
   font-family: var(--serif);
@@ -860,6 +883,7 @@ footer{ padding: 34px 0 44px; color: rgba(255,255,255,.62); }
   display: none;
 }
 .grid-bg{ display:none; }
+
 
 
 
