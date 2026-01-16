@@ -1,8 +1,12 @@
+// script.js
+
 // Mobile menu toggle
 const btn = document.getElementById('hamburger');
 const menu = document.getElementById('mobileMenu');
 
 function setExpanded(isOpen){
+  if(!btn || !menu) return;
+
   btn.setAttribute('aria-expanded', String(isOpen));
   menu.hidden = !isOpen;
 
@@ -22,17 +26,34 @@ function setExpanded(isOpen){
   }
 }
 
-btn.addEventListener('click', () => {
-  const open = btn.getAttribute('aria-expanded') === 'true';
-  setExpanded(!open);
-});
+/* FIX #2: force closed on load (prevents “auto open” on mobile) */
+setExpanded(false);
 
-// Close menu on link click
-menu.addEventListener('click', (e) => {
-  const a = e.target.closest('a');
-  if(!a) return;
-  setExpanded(false);
-});
+if(btn){
+  btn.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') === 'true';
+    setExpanded(!open);
+  });
+}
+
+if(menu){
+  // Close menu on link click
+  menu.addEventListener('click', (e) => {
+    const a = e.target.closest('a');
+    if(!a) return;
+    setExpanded(false);
+  });
+}
+
+/* Optional hard reset when leaving mobile breakpoint */
+let lastIsMobile = window.matchMedia('(max-width: 820px)').matches;
+window.addEventListener('resize', () => {
+  const isMobile = window.matchMedia('(max-width: 820px)').matches;
+  if(lastIsMobile && !isMobile){
+    setExpanded(false);
+  }
+  lastIsMobile = isMobile;
+}, { passive: true });
 
 // Smooth scroll for in page anchors
 document.addEventListener('click', (e) => {
@@ -101,5 +122,32 @@ if(form){
     e.preventDefault();
     toast('Thanks. This is a demo form, but the intent is real.');
     form.reset();
+  });
+}
+
+/* FIX #3: Back to top arrow (appears after a little scroll) */
+const toTop = document.getElementById('toTop');
+
+if(toTop){
+  let ticking = false;
+
+  const updateToTop = () => {
+    const show = window.scrollY > 420;
+    toTop.classList.toggle('show', show);
+  };
+
+  updateToTop();
+
+  window.addEventListener('scroll', () => {
+    if(ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      updateToTop();
+      ticking = false;
+    });
+  }, { passive: true });
+
+  toTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
