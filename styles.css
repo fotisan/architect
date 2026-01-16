@@ -222,7 +222,7 @@ header{ position:relative; z-index:10; }
 .grid-bg{
   position:absolute; inset:-160px -120px -120px -120px;
   pointer-events:none;
-  opacity:.65;
+  opacity:.25;
   mask-image: radial-gradient(circle at 30% 35%, black 0%, black 55%, transparent 78%);
 }
 .hero-inner{
