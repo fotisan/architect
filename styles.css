@@ -26,13 +26,19 @@ body{
   margin:0;
   font-family: var(--sans);
   color: var(--text);
-  background:
-    radial-gradient(1200px 700px at 10% 10%, rgba(184,242,255,.14), transparent 60%),
-    radial-gradient(900px 600px at 85% 15%, rgba(217,199,255,.12), transparent 55%),
-    radial-gradient(900px 700px at 60% 95%, rgba(183,255,207,.10), transparent 60%),
-    linear-gradient(180deg, var(--bg), var(--bg2));
+
+  /* One continuous background for the entire site */
+  /* Option A: Clean Gallery (safer) */
+  background: radial-gradient(1200px 700px at 50% 0%, rgba(255,255,255,0.03), transparent 70%), var(--bg);
+
+  /* Option B: Deep Focus (more atmospheric) */
+  /* background: radial-gradient(1000px 600px at 80% 20%, rgba(184,242,255,0.08), transparent 60%), var(--bg); */
+
   overflow-x:hidden;
 }
+
+/* Ensure sections never introduce their own background blocks */
+section{ background: transparent; }
 
 a{ color:inherit; text-decoration:none; }
 button{ font-family:inherit; }
@@ -524,6 +530,28 @@ section{ padding: 42px 0; }
   background: rgba(255,255,255,.05);
   transform: rotate(12deg);
   box-shadow: 0 24px 70px rgba(0,0,0,.35);
+}
+
+/* Image placeholder notes (visible labels for what to insert) */
+.img-note{
+  position:absolute;
+  left:14px; right:14px; bottom:14px;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px dashed rgba(255,255,255,.22);
+  background: rgba(0,0,0,.32);
+  backdrop-filter: blur(10px);
+  font-family: var(--mono);
+  font-size:12px;
+  line-height:1.35;
+  color: rgba(255,255,255,.78);
+  letter-spacing:.01em;
+  pointer-events:none;
+}
+
+/* Slightly tighter on very small screens */
+@media (max-width: 560px){
+  .img-note{ left:12px; right:12px; bottom:12px; font-size:11px; padding:9px 10px; }
 }
 
 /* Process */
