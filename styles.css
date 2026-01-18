@@ -662,9 +662,9 @@ section{ padding: 42px 0; }
   line-height:1.6;
 }
 
-/* ✅ NEW: Desktop-only filler image inside the Studio quote card */
+/* ✅ NEW: filler image inside the Studio quote card (now visible on mobile too) */
 .studio-fill{
-  display:none;
+  display:block;
   margin-top: 16px;
   border-radius: 18px;
   border: 1px solid rgba(255,255,255,.12);
