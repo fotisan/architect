@@ -681,6 +681,10 @@ section{ padding: 42px 0; }
   .studio-fill{
     display:block;
   }
+
+  .quote .side{
+    margin-top: 12px;
+  }
 }
 
 /* Contact */
