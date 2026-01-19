@@ -22,17 +22,25 @@
 }
 
 *{ box-sizing:border-box; }
-html,body{ height:100%; }
+htmlhtml,body{ height:100%; }
+
+/* ✅ CHANGE: move the unified background to html so it stays identical across all sections */
+html{
+  background:
+    radial-gradient(1200px 700px at 50% 0%, rgba(255,255,255,0.03), transparent 70%),
+    radial-gradient(900px 600px at 15% 45%, rgba(184,242,255,0.05), transparent 70%),
+    radial-gradient(900px 600px at 85% 55%, rgba(217,199,255,0.045), transparent 70%),
+    radial-gradient(1000px 700px at 50% 100%, rgba(183,255,207,0.035), transparent 72%),
+    var(--bg);
+  background-attachment: fixed;
+}
+
 body{
   margin:0;
   font-family: var(--sans);
   color: var(--text);
-  /* Option A: Clean Gallery (white spotlight, no extra colors) */
-  background:
-    radial-gradient(1600px 900px at 50% -10%, rgba(255,255,255,0.032), transparent 72%),
-    radial-gradient(1400px 900px at 50% 60%, rgba(255,255,255,0.016), transparent 74%),
-    linear-gradient(180deg, rgba(255,255,255,0.010), rgba(0,0,0,0) 42%),
-    var(--bg);
+  /* ✅ CHANGE: body becomes transparent so the html background is continuous */
+  background: transparent;
   overflow-x:hidden;
 }
 
