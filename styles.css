@@ -22,9 +22,9 @@
 }
 
 *{ box-sizing:border-box; }
-htmlhtml,body{ height:100%; }
+html,body{ height:100%; }
 
-/* ✅ CHANGE: move the unified background to html so it stays identical across all sections */
+/* unified background */
 html{
   background:
     radial-gradient(1200px 700px at 50% 0%, rgba(255,255,255,0.03), transparent 70%),
@@ -39,7 +39,6 @@ body{
   margin:0;
   font-family: var(--sans);
   color: var(--text);
-  /* ✅ CHANGE: body becomes transparent so the html background is continuous */
   background: transparent;
   overflow-x:hidden;
 }
@@ -201,8 +200,6 @@ header{ position:relative; z-index:10; }
 .hamburger span:nth-child(3){ top:26px; opacity:.8; }
 
 .mobile-menu{ display:none; padding: 0 0 18px 0; }
-
-/* FIX: respect the `hidden` attribute even inside mobile breakpoint */
 .mobile-menu[hidden]{ display:none !important; }
 
 .mobile-card{
@@ -326,13 +323,10 @@ header{ position:relative; z-index:10; }
   position:relative;
   overflow:hidden;
   min-height: 420px;
-
-  /* FIX #1: make label a separate area, not overlapping the visuals */
   display:flex;
   flex-direction:column;
 }
 .sculpture .frame{
-  /* was absolute; now it's in flow so text never sits on top of visuals */
   position:relative;
   margin:18px;
   flex: 1 1 auto;
@@ -379,7 +373,6 @@ header{ position:relative; z-index:10; }
   pointer-events:none;
 }
 .sculpture-label{
-  /* FIX #1: label is now its own block, not absolute */
   position:relative;
   z-index:5;
   left:auto; right:auto; bottom:auto;
@@ -387,7 +380,6 @@ header{ position:relative; z-index:10; }
   justify-content:space-between;
   align-items:flex-end;
   gap: 14px;
-
   padding: 16px 18px 18px;
   border-top: 1px solid rgba(255,255,255,.10);
   background: linear-gradient(180deg, rgba(10,11,16,.10), rgba(10,11,16,.28));
@@ -499,7 +491,7 @@ section{ padding: 42px 0; }
   padding: 8px 10px;
   border-radius: 14px;
   border:1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255asing.03);
+  background: rgba(255,255,255,.03);
 }
 .metric i{
   width:9px; height:9px; border-radius:999px;
@@ -550,8 +542,6 @@ section{ padding: 42px 0; }
   transform: rotate(12deg);
   box-shadow: 0 24px 70px rgba(0,0,0,.35);
 }
-
-/* ✅ CHANGE (ONLY): remove the overlays/frames on top of project images */
 .project-art:before,
 .project-art:after{
   display:none;
@@ -580,7 +570,6 @@ section{ padding: 42px 0; }
     linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
 }
 
-/* Image placeholder notes (visible labels for what to insert) */
 .img-note{
   position:absolute;
   left: 14px;
@@ -600,7 +589,6 @@ section{ padding: 42px 0; }
   z-index: 4;
 }
 
-/* Fix: keep the note from overlapping the bottom label in the hero sculpture */
 .sculpture .img-note{
   top: 14px;
   bottom: auto;
@@ -672,7 +660,6 @@ section{ padding: 42px 0; }
   line-height:1.6;
 }
 
-/* ✅ NEW: filler image inside the Studio quote card (now visible on mobile too) */
 .studio-fill{
   display:block;
   margin-top: 16px;
@@ -872,16 +859,12 @@ footer{ padding: 34px 0 44px; color: rgba(255,255,255,.62); }
 
 @media (max-width: 560px){
   .hero-card{ padding: 22px; }
-
-  /* was inset; now margin because frame is relative */
   .sculpture .frame{ margin: 14px; }
-
   .fields{ grid-template-columns: 1fr; }
   .steps{ grid-template-columns: 1fr; }
   .hero-meta{ gap:10px; }
   .meta-chip{ width:100%; justify-content:space-between; }
   .img-note{ left: 12px; right: 12px; padding: 9px 10px; font-size: 11px; }
-
   .to-top{ right: 14px; bottom: 14px; }
 }
 
@@ -889,8 +872,15 @@ footer{ padding: 34px 0 44px; color: rgba(255,255,255,.62); }
   .reveal{ transition:none; transform:none; opacity:1; }
   .btn, .links a, .hamburger, .credit-mini a, .to-top{ transition:none; }
 }
-/* REMOVE HERO OVERLAY SHAPES (the 3 frames on top of the hero image) */
+/* REMOVE HERO OVERLAY SHAPES */
 .sculpture .shape{
   display: none;
 }
 .grid-bg{ display:none; }
+
+/* PERFORMANCE OPTIMIZATION */
+/* Αυτό είναι το νέο κομμάτι που βοηθάει το rendering όταν οι κάρτες είναι εκτός οθόνης */
+.card.project, .card.step, .card.big {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 400px; /* Μια εκτίμηση ύψους για να μην "χοροπηδάει" η μπάρα κύλισης */
+}
